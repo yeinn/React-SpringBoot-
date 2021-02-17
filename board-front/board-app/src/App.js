@@ -1,4 +1,5 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'; 
 import ListBoardComponent from './components/ListBoardComponent';
 import HeaderComponent from './components/HeaderComponent';
@@ -10,10 +11,10 @@ function App() {
       <Router>
         <HeaderComponent/>
         <div className="container">
-          <switch>
+          <Switch>
             <Route path="/" exact component = {ListBoardComponent}></Route>
             <Route path="/board" component = {ListBoardComponent}></Route>
-          </switch>
+          </Switch>
         </div>
         <FooterComponent/>
       </Router>

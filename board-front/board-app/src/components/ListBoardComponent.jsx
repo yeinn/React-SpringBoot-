@@ -22,7 +22,7 @@ class ListBoardComponent extends Component {
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th></th>
+                                <th>no</th>
                                 <th>타이틀</th>
                                 <th>작성자</th>
                                 <th>작성일</th>
@@ -36,6 +36,7 @@ class ListBoardComponent extends Component {
                                 this.state.boards.map(
                                     board =>
                                     <tr key={board.no}>
+                                        <td>{board.no}</td>
                                         <td>{board.title}</td>
                                         <td>{board.memberNo}</td>
                                         <td>{board.createdTime}</td>
