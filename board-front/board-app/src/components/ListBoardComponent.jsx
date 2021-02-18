@@ -5,19 +5,32 @@ class ListBoardComponent extends Component {
 
     constructor(props){
         super(props)
-        this.state={boards: []}
+        this.state={
+            boards: []
+        }
+        this.createBoard = this.createBoard.bind(this);
     }
 
-    componentDidMount(){
-        BoardService.getBoards().then((res)=>{
-            this.setState({boards: res.data});
-        })
+    componentDidMount() {
+        BoardService.getBoards().then((res) => {
+        console.log(res.data);
+        
+        this.setState({ boards: res.data});
+        });
+    }
+
+    createBoard() {
+        this.props.history.push('/create-board/');
     }
 
     render() {
         return (
             <div>
                 <h2 className="text-center">게시글 목록</h2>
+                <div className="row">
+                    <button className="btn btn-primary" onClick={this.createBoard}> 새 글쓰기 </button>
+
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -42,7 +55,7 @@ class ListBoardComponent extends Component {
                                         <td>{board.createdTime}</td>
                                         <td>{board.updatedTime}</td>
                                         <td>{board.likes}</td>
-                                        <td>{board.counts}</td>
+                                        <td>{board.count}</td>
                                     </tr>
                                 )
                             }
