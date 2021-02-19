@@ -45,7 +45,7 @@ class ReadBoardComponent extends Component {
     }
 
     goToList(){
-        this.props.history.puch('/board');
+        this.props.history.push('/board');
     }
 
     render() {
